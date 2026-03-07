@@ -20,7 +20,7 @@ async function startWatcher () {
         cookieCache.delete(event.filename)
       }
     }
-  } catch (error) {
+  } catch {
     // 监听失败不影响正常运行
   }
 }
@@ -70,7 +70,7 @@ export async function readCookieFile (server) {
     })
 
     return value
-  } catch (error) {
+  } catch {
     // 读取失败时也缓存空字符串，避免频繁读取不存在的文件
     cookieCache.set(server, {
       value: '',
@@ -93,7 +93,7 @@ export function isAllowedHost (referrer) {
     const url = new URL(referrer)
     const hostname = url.hostname.toLowerCase()
     return config.meting.cookie.allowHosts.includes(hostname)
-  } catch (error) {
+  } catch {
     return false
   }
 }

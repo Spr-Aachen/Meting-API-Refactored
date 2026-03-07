@@ -65,12 +65,12 @@ export default async (c) => {
     let response
     try {
       response = await meting[method](id)
-    } catch (error) {
+    } catch {
       throw new HTTPException(500, { message: '上游 API 调用失败' })
     }
     try {
       data = JSON.parse(response)
-    } catch (error) {
+    } catch {
       throw new HTTPException(500, { message: '上游 API 返回格式异常' })
     }
     cache.set(cacheKey, data, {
