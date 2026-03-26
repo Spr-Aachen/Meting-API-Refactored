@@ -1,3 +1,8 @@
-node_modules/
+node_modules
+dist
 .env
-cookie/
+.DS_Store
+*.log
+.vscode
+.idea
+coverage

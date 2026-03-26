@@ -1,13 +1,27 @@
-FROM oven/bun:latest
+FROM node:18-alpine
 
-ENV NODE_ENV=production
+ARG UID=1010
+ARG GID=1010
+
+RUN apk add --no-cache dumb-init
 
 WORKDIR /app
 
-COPY package.json bun.lockb* ./
-RUN bun install --production
+COPY package*.json ./
+RUN npm install --production
 
 COPY . .
 
-EXPOSE 80 443
-ENTRYPOINT ["bun", "run", "src/index.js"]
+RUN mkdir -p /app/dist && \
+    node esbuild.config.js
+
+RUN addgroup -g ${GID} -S appgroup && \
+    adduser -u ${UID} -S appuser -G appgroup
+
+USER appuser
+
+EXPOSE 3000
+
+ENTRYPOINT ["dumb-init", "--"]
+
+CMD ["node", "dist/node.js"]
