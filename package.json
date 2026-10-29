@@ -5,12 +5,12 @@
     "main": "node.js",
     "scripts": {
         "start:node": "node node.js",
-        "start:deno": "deno run --allow-net --allow-env dist/deno.js",
+        "start:deno": "deno run --allow-net --allow-env deno.js",
         "test": "vitest run",
         "dev": "node --watch node.js",
-        "patch": "npm version patch && git push origin main && git push origin --tags",
-        "minor": "npm version minor && git push origin main && git push origin --tags",
-        "major": "npm version major && git push origin main && git push origin --tags"
+        "patch": "npm version patch && git push origin HEAD --follow-tags",
+        "minor": "npm version minor && git push origin HEAD --follow-tags",
+        "major": "npm version major && git push origin HEAD --follow-tags"
     },
     "engines": {
         "node": ">=18.0.0"
