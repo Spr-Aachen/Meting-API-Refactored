@@ -45,7 +45,7 @@ bun run start:node
 | PORT | 3000 | 服务监听端口 |
 | RUNTIME | auto | 运行环境: vercel/cloudflare/node |
 | METING_COOKIE_ALLOW_HOSTS | `` | 限制哪些 referrer 来源可使用 Cookie（逗号分隔，空表示不限制） |
-| METING_COOKIE_{SERVER} | - | 各平台 Cookie（例如 `METING_COOKIE_NETEASE`） |
+| METING_COOKIE_{SERVER} | - | 各平台完整 Cookie 字符串（例如 `METING_COOKIE_NETEASE`） |
 
 
 ## API 使用

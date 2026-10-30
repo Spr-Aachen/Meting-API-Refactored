@@ -1,5 +1,6 @@
 import encrypt from './crypto.js'
 import { net_ease_anonymous_token } from './config.js'
+import { parseCookie } from '../../utils/cookie.js'
 import { customAlphabet } from 'nanoid/non-secure'
 
 
@@ -70,16 +71,7 @@ export const request = async (method, url, data = {}, options) => {
 
     // if cookie provided as string like "k=v; k2=v2", parse into object
     if (typeof options.cookie === 'string') {
-        const obj = {}
-        options.cookie.split(';').forEach(s => {
-            const kv = s.split('=')
-            if (kv.length >= 2) {
-                const k = decodeURIComponent(kv[0].trim())
-                const v = decodeURIComponent(kv.slice(1).join('=').trim())
-                if (k) obj[k] = v
-            }
-        })
-        options.cookie = obj
+        options.cookie = parseCookie(options.cookie)
     }
 
     if (typeof options.cookie === 'object') {

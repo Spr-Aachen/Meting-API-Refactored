@@ -28,6 +28,10 @@ export const get_song_url = async (id, cookie = '') => {
     }
 
     const url = res.data && res.data[0]?.url?.replace('http://', 'https://')
+    if (!url) {
+        // 常见原因：Cookie 未带 MUSIC_U（非登录态）或缺少 VIP 权限
+        console.warn(`[netease] no url for song ${id}: code=${res.code}, songCode=${res.data?.[0]?.code}`)
+    }
     return url || `https://music.163.com/song/media/outer/url?id=${id}.mp3`
 
 }
