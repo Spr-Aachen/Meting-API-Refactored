@@ -36,6 +36,17 @@ bun run start:node
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Spr-Aachen/Meting-API)
 
+部署后在项目 Settings → Environment Variables 添加：
+
+| 变量名 | 说明 |
+|--------|------|
+| `METING_COOKIE_NETEASE` | 网易云完整 Cookie（含 `MUSIC_U`），VIP 歌曲必需 |
+| `METING_COOKIE_ALLOW_HOSTS` | 可选，限制哪些 referrer 可用 Cookie（留空则不限制，测试临时域名时先留空） |
+
+`vercel.json` 已把 Functions 区域固定为 `hkg1`（香港），用于避开海外出口的版权限制；Hobby 计划只允许单区域，若部署报区域错误就删掉 `regions` 字段。
+
+> 注意：`*.vercel.app` 域名在中国大陆常被 DNS 污染，验证时建议用代理访问，或临时加一个自定义子域（CNAME 到 Vercel，先灰云签发证书再开 Cloudflare 代理）
+
 
 ## 环境变量
 

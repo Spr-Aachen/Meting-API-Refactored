@@ -2,6 +2,9 @@
     "env": {
         "RUNTIME": "vercel"
     },
+    "regions": [
+        "hkg1"
+    ],
     "rewrites": [
         {
             "source": "/(.*)",

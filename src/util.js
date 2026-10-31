@@ -59,6 +59,11 @@ export const get_runtime = () => {
         return globalThis?.process?.env?.RUNTIME
     }
 
+    // Vercel 会自动注入 VERCEL=1，不依赖 vercel.json 里的 env 是否生效
+    if (globalThis?.process?.env?.VERCEL) {
+        return 'vercel'
+    }
+
     if (globalThis?.Deno !== undefined) {
         return 'deno'
     }
