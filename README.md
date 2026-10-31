@@ -2,8 +2,7 @@
 
 一个简洁优雅的音乐 API 服务，支持多平台音乐数据获取。
 
-![Version](https://img.shields.io/badge/version-1.2.0-blue)
-![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18-green)
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 
@@ -34,7 +33,7 @@ bun run start:node
 
 ### Vercel (推荐)
 
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Spr-Aachen/Meting-API)
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Spr-Aachen/Meting-API-Refactored)
 
 部署后在项目 Settings → Environment Variables 添加：
 
